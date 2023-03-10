@@ -32,3 +32,11 @@ class ByteChecker:
             for i in range(4, len(eocd) - 3):
                 if eocd[i] == 80 and eocd[i + 1] == 75 and eocd[i + 2] == 5 and eocd[i + 3] == 6:
                     raise SignatureException("EOCD marker found after start of EOCD")
+            
+            
+            buffer = bytearray(4096)
+            size = len(buffer)
+            f.seek(0)
+            f.readinto(buffer)
+            print(buffer)
+
